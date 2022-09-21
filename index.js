@@ -4,7 +4,7 @@ require('dotenv').config()
 
 const app = express()
 
-const { router: postRouter } = require('./routers/postsRouter')
+const { router: postRouter } = require('./src/routers/postsRouter')
 
 const PORT = process.env.PORT
 
