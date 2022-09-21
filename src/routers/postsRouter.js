@@ -1,24 +1,24 @@
-const express = require('express')
-const router = express.Router()
+const express = require('express');
+// eslint-disable-next-line new-cap
+const router = express.Router();
 
-const { createPostValidation, updatePostValidation } = require('../middleware/validation')
 const {
-    getPosts,
-    getPostById,
-    createPost,
-    updatePost,
-    deletePost,
-} = require('../controllers/postController')
+  createPostValidation,
+  updatePostValidation,
+} = require('../middleware/validation');
+const {
+  getPosts,
+  getPostById,
+  createPost,
+  updatePost,
+  deletePost,
+} = require('../controllers/postController');
 
 router
     .get('/', getPosts)
-
     .get('/:id', getPostById)
-
     .post('/', createPostValidation, createPost)
-
     .put('/:id', updatePostValidation, updatePost)
+    .delete('/:id', deletePost);
 
-    .delete('/:id', deletePost)
-
-module.exports = { router }
+module.exports = {router};
